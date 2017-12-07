@@ -50,6 +50,8 @@ DZAI_AI_killed_air = compile preprocessFileLineNumbers format ["%1\compile\ai_ki
 DZAI_AI_killed_land = compile preprocessFileLineNumbers format ["%1\compile\ai_killed_land.sqf",DZAI_directory];
 DZAI_vehRegroup = compile preprocessFileLineNumbers format ["%1\compile\veh_regroup.sqf",DZAI_directory];
 
+DZAI_heliDropcrate = compile preprocessFileLineNumbers format ["%1\compile\heli_dropcrate.sqf",DZAI_directory];
+
 //Static AI functions
 if (DZAI_staticAI) then {
 	fnc_spawnBandits = compile preprocessFileLineNumbers format ["%1\spawn_functions\spawnBandits.sqf",DZAI_directory];

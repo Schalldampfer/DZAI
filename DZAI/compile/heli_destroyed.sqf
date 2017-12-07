@@ -27,6 +27,7 @@ if !(surfaceIsWater (getPosASL _helicopter)) then {
 			[_x] joinSilent grpNull;
 		};
 	} count (units _unitGroup);
+	_helicopter call DZAI_heliDropcrate;
 } else {
 	//_unitGroup call DZAI_deleteGroup;
 };

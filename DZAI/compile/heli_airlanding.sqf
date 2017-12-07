@@ -15,6 +15,10 @@ _helicopter setVariable ["heli_disabled",true];
 _unitGroup = _helicopter getVariable ["unitGroup",(group (_this select 2))];
 [_unitGroup,_helicopter] call DZAI_respawnAIVehicle;
 
+if (!surfaceIsWater _vehPos) then {
+	_helicopter call DZAI_heliDropcrate;
+};
+
 _unitsAlive = {alive _x} count (units _unitGroup);
 if (_unitsAlive > 0) then {
 	//Convert helicrew units to ground units

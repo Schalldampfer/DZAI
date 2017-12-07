@@ -80,6 +80,7 @@ if (!surfaceIsWater _vehPos) then {
 		} forEach _units;
 		_unitGroup setVariable ["GroupSize",-1];
 	};
+	_helicopter call DZAI_heliDropcrate;
 } else {
 	//_unitGroup call DZAI_deleteGroup;
 	_unitGroup setVariable ["GroupSize",-1];

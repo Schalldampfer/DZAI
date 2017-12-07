@@ -487,6 +487,14 @@ DZAI_tools1 = [["ItemFlashlight",0.75],["ItemWatch",0.75],["ItemKnife",0.75],["I
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 DZAI_gadgets0 = [["binocular",0.40],["NVGoggles",0.00]];
 DZAI_gadgets1 = [["binocular",0.60],["NVGoggles",0.05]];
+//rewards
+DZAI_crate_items = ["ItemSodaPepsi","ItemSodaCoke","bulk_ItemSodaCokeFull","bulk_ItemSodaPepsiFull",
+"bulk_FoodbaconCookedFull","FoodNutmix","FoodPistachio",
+"ItemBandage","ItemAntibiotic","bloodBagONEG","ItemEpinephrine","ItemHeatPack","ItemMorphine",
+"ItemCanvas","ItemTent","bulk_ItemWire","bulk_ItemSandbag","bulk_ItemTankTrap","bulk_PartGeneric","MortarBucket",
+"PartEngine","PartFueltank","PartGlass","PartVRotor","PartWheel","ItemORP","ItemAVE","ItemLRK","ItemTNK","ItemARM",
+"ItemDocument","ItemKiloHemp","ItemTinBar10oz","ItemBriefcaseS100oz","ItemBriefcase100oz","ItemObsidian"];
+DZAI_crate_tools = ["Binocular","ItemCompass","ItemCrowbar","ItemEtool","ItemFishingPole","ItemFlashlight","ItemHatchet","ItemKnife","Item5Matchbox","ItemToolbox"];
 
 
 //NOTHING TO EDIT BEYOND THIS POINT
