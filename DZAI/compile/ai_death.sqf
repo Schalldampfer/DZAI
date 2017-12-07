@@ -94,4 +94,8 @@ if !(isNull _victim) then {
 	};
 };
 
+if(DZAI_debugLevel > 0) then {
+	diag_log format ["DZAI: %1 is killed (%3) by %2", _victim,_killer,_deathType];
+};
+
 _victim
