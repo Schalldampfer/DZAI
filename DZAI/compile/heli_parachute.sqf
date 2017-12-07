@@ -24,11 +24,13 @@ if (!surfaceIsWater _vehPos) then {
 		{
 			if (alive _x) then {
 				_health = _x getVariable ["unithealth",[]];
-				if ((_health select 1) > 0) then {
+				if (count _health > 1) then {
+					_health set [0,(_health select 0) * (1 - (damage _helicopter))];
 					_health set [1,0];	//If unit has any leg damage, heal it
-					_health set [2,false];	
+					_health set [2,false];
 					_x setHit["legs",0];
 				};
+				_x setVariable ["unithealth",_health];
 				_x action ["eject",_helicopter];
 				unassignVehicle _x;
 			} else {
