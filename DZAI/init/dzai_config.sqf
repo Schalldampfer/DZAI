@@ -168,8 +168,8 @@ DZAI_randAreaBlacklist = [];
 /*	AI Air vehicle patrol settings. These AI vehicles will randomly travel between different cities and towns.
 --------------------------------------------------------------------------------------------------------------------*/		
 
-//Global maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
-DZAI_maxHeliPatrols = 0;
+//Global maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).
+DZAI_maxHeliPatrols = 2;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinA = 600;
@@ -202,8 +202,8 @@ DZAI_airWeapons = [
 /*AI Land vehicle patrol settings. These AI vehicles will randomly travel between different cities and towns.
 --------------------------------------------------------------------------------------------------------------------*/	
 
-//Global maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).	
-DZAI_maxLandPatrols = 0;
+//Global maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).
+DZAI_maxLandPatrols = 3;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinL = 600;
