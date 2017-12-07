@@ -224,6 +224,40 @@ if (_isAirVehicle) then {
 	};
 };
 
+//marker
+[_vehicle,_unitGroup] spawn {
+	private["_vehicle","_unitgroup","_runmonitor","_pos_now","_marker","_dot","_name","_type","_marksize"];
+	_vehicle 	= _this select 0;
+	_unitgroup 	= _this select 1;
+	_runmonitor = true;
+	_type = typeOf _vehicle;
+	_name = getText (configFile >> "CfgVehicles" >> _type >> "displayName");
+
+	while {(canMove _vehicle) && _runmonitor} do {
+		_marksize = (200 min (({alive _x} count (units _unitgroup)) * 25)) max 50;
+		_pos_now = getPos _vehicle;
+		_marker = createMarker [format["Patrol%1%2",_type,floor(random 20)], _pos_now];
+		_marker setMarkerColor "ColorYellow";
+		_marker setMarkerShape "ELLIPSE";
+		_marker setMarkerBrush "Solid";
+		_marker setMarkerSize [_marksize,_marksize];
+		_marker setMarkerAlpha 0.8;
+		_dot = createMarker [format["PatrolDot%1%2",_type,floor(random 20)], _pos_now];
+		_dot setMarkerColor "ColorRed";
+		_dot setMarkerType "mil_dot";
+		_dot setMarkerText format["Patrol %1",_name];
+		_dot setMarkerSize [0.5,0.5];
+
+		if (!(alive leader _unitgroup)) then {
+			_runmonitor = false;
+		};
+		sleep 5;
+
+		deleteMarker _marker;
+		deleteMarker _dot;
+	};
+};
+
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Created AI vehicle patrol at %1 with vehicle type %2 with %3 crew units.",_vehSpawnPos,_vehicleType,(count (units _unitGroup))]};
 
 true
