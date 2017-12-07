@@ -63,6 +63,8 @@ if !(_vehicle isKindOf "Plane") then {
 
 //Set variables
 _vehicle setVariable ["unitGroup",_unitGroup];
+_vehicle setVariable ["ObjectID","1",true];
+_vehicle setVariable ["CharacterID","0",true];
 
 //Determine vehicle armed state
 _turretCount = count (configFile >> "CfgVehicles" >> _vehicleType >> "turrets");
@@ -79,9 +81,35 @@ if (_isAirVehicle) then {
 	_vehicle addEventHandler ["HandleDamage",{_this call DZAI_vHandleDamage}];
 };
 _vehicle allowCrewInImmobile (!_isAirVehicle);
-_vehicle setVehicleLock "LOCKED";
+_vehicle setVehicleLock "UNLOCKED"; //_vehicle setVehicleLock "LOCKED"; //unlock!
+
+_vehicle addEventHandler ["GetIn",{
+	_nil = [nil,(_this select 2),"loc",rTITLETEXT,"Warning: This vehicle will disappear on server restart!","PLAIN DOWN",5] call RE;
+}];
+
 clearWeaponCargoGlobal _vehicle;
 clearMagazineCargoGlobal _vehicle;
+
+//add items
+if ((!_isAirVehicle) and (!isNil "DZAI_crate_items")) then {
+	private ["_num","_item","_tool"];
+
+	_vehicle setFuel (random 0.8) + 0.2;
+
+	_num = (_vehicle emptyPositions "cargo") * (ceil(random 3) + _turretCount * 2);
+	for "_i" from 0 to _num do {
+		_item = DZAI_crate_items call BIS_fnc_selectRandom;
+		_vehicle addMagazineCargoGlobal [_item,1];
+	};
+	
+	_num = ceil(random 4) + _turretCount;
+	for "_i" from 0 to _num do {
+		_tool = DZAI_crate_tools call BIS_fnc_selectRandom;
+		_vehicle addWeaponCargoGlobal [_tool,1];
+	};
+};
+
+dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_vehicle];
 
 //Setup group and crew
 0 = [_driver,_weapongrade] call DZAI_setSkills;
