@@ -37,6 +37,7 @@ DZAI_cleanupDelay = 900;
 //Additional support exists for the following DayZ mods: Epoch, Overwatch, Unleashed, Hunting Grounds, 2017. (Default: true)
 DZAI_modAutoDetect = true;
 
+DZAI_AIhasMoney = true;
 
 /*	AI Unit Settings
 --------------------------------------------------------------------------------------------------------------------*/		

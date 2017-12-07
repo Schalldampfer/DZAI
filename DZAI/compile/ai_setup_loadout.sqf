@@ -1,4 +1,4 @@
-private ["_unit","_weapongrade","_weapons","_weapon","_magazine","_backpacks","_gadgetsArray","_backpack","_gadget","_inventory"];
+private ["_unit","_weapongrade","_weapons","_weapon","_magazine","_backpacks","_gadgetsArray","_backpack","_gadget","_inventory","_cash"];
 _unit = _this select 0;
 _weapongrade = _this select 1;
 
@@ -48,6 +48,12 @@ if (DZAI_tempNVGs) then {
 		_nvg = _unit call DZAI_addTempNVG;
 		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Generated temporary NVGs for AI.";};
 	};
+};
+
+//Credit to Zupa for original "add money to ai" code.
+if (DZAI_AIhasMoney && Z_singleCurrency) then {
+	_cash = round(random 10) * 20; // adds money to ai wallets in 20x increments. 
+	_unit setVariable[Z_MoneyVariable,_cash ,true];
 };
 
 _unit setVariable ["loadoutDone",true];
